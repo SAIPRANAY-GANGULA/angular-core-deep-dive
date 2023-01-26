@@ -1,9 +1,10 @@
 <div class="flex items-center justify-center flex-wrap">
   <app-course-card
+    *ngFor="let course of courses; index as i"
     (click)="onClickEventBubbled()"
     (onCourseSelected)="onCourseView($event)"
-    [courseAlias]="courses[0]"
-  ></app-course-card>
-  <app-course-card [courseAlias]="courses[1]"></app-course-card>
-  <app-course-card [courseAlias]="courses[2]"></app-course-card>
+    [courseAlias]="course"
+    [index]="i + 1"
+  >
+  </app-course-card>
 </div>

@@ -8,6 +8,7 @@ import { Course } from '../../constants';
 })
 export class CourseCardComponent {
   @Input('courseAlias') course: Course | undefined; //property-binding
+  @Input() index: number | undefined;
   @Output('onCourseSelected') onCourseSelected = new EventEmitter<Course>(); //event-binding
 
   onCourseView(): void {

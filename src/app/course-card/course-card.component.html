@@ -1,7 +1,9 @@
 <mat-card class="example-card | m-10">
   <mat-card-header class="flex items-center justify-center">
     <div mat-card-avatar class="example-header-image | m-0"></div>
-    <mat-card-title>{{ course?.description }}</mat-card-title>
+    <mat-card-title
+      >{{ index ?? "" }}.{{ course?.description }}
+    </mat-card-title>
   </mat-card-header>
   <img
     class="my-5"
