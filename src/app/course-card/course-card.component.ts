@@ -7,11 +7,11 @@ import { Course } from '../../constants';
   styleUrls: ['./course-card.component.scss'],
 })
 export class CourseCardComponent {
-  @Input() course: Course | undefined; //property-binding
-  @Output() courseView = new EventEmitter<Course>(); //event-binding
+  @Input('courseAlias') course: Course | undefined; //property-binding
+  @Output('onCourseSelected') onCourseSelected = new EventEmitter<Course>(); //event-binding
 
   onCourseView(): void {
     console.log('CourseCardComponent - onCourseView clicked');
-    this.courseView.emit(this.course);
+    this.onCourseSelected.emit(this.course);
   }
 }
