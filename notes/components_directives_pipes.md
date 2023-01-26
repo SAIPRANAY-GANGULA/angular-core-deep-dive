@@ -24,3 +24,20 @@ ngFor API Ref: https://angular.io/api/common/NgFor
 ngIf API Ref: https://angular.io/api/common/NgIf
 
 ![image_info](./images/img_3.png)
+
+### `nfClass` Directive
+ngClass API Ref: https://angular.io/api/common/NgClass
+
+![image_info](./images/img_4.png)
+
+```html
+<some-element [ngClass]="'first second'">...</some-element>
+
+<some-element [ngClass]="['first', 'second']">...</some-element>
+
+<some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>
+
+<some-element [ngClass]="stringExp|arrayExp|objExp">...</some-element>
+
+<some-element [ngClass]="{'class1 class2 class3' : true}">...</some-element>
+```

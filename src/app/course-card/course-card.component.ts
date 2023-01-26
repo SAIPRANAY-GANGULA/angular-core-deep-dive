@@ -15,4 +15,12 @@ export class CourseCardComponent {
     console.log('CourseCardComponent - onCourseView clicked');
     this.onCourseSelected.emit(this.course);
   }
+
+  getCardClass() {
+    return {
+      beginner: this.course?.category === 'BEGINNER',
+      intermediate: this.course?.category === 'INTERMEDIATE',
+      advanced: this.course?.category === 'ADVANCED',
+    };
+  }
 }

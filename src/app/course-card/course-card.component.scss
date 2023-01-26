@@ -6,3 +6,15 @@
   background-image: url("https://angular.io/assets/images/logos/angular/angular_solidBlack.svg");
   margin: 0;
 }
+
+.beginner {
+  @apply bg-emerald-100;
+}
+
+.intermediate {
+  @apply bg-blue-100;
+}
+
+.advanced {
+  @apply bg-red-100;
+}
