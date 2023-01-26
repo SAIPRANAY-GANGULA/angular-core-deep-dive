@@ -1,5 +1,8 @@
 <div class="flex items-center justify-center flex-wrap">
-  <app-course-card [course]="courses[0]"></app-course-card>
+  <app-course-card
+    (click)="onClickEventBubbled()"
+    [course]="courses[0]"
+  ></app-course-card>
   <app-course-card [course]="courses[1]"></app-course-card>
   <app-course-card [course]="courses[2]"></app-course-card>
 </div>

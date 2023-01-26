@@ -12,3 +12,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.span {
+  @apply p-1 bg-indigo-300 rounded hover:bg-indigo-500 hover:text-white mx-2;
+}

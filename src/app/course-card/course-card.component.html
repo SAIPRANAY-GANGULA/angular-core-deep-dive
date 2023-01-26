@@ -15,7 +15,10 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="flex justify-center">
-    <button mat-button>{{ course?.category }}</button>
-    <button mat-button>{{ course?.lessonsCount }}</button>
+    <!--    <span class="span">{{ course?.category }}</span>-->
+    <!--    <span class="span">{{ course?.lessonsCount }}</span>-->
+    <button mat-raised-button color="primary" (click)="onCourseView()">
+      View Course
+    </button>
   </mat-card-actions>
 </mat-card>

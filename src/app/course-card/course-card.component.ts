@@ -8,4 +8,8 @@ import { Course } from '../../constants';
 })
 export class CourseCardComponent {
   @Input() course: Course | undefined; //property-binding
+
+  onCourseView(): void {
+    console.log('CourseCardComponent - onCourseView clicked');
+  }
 }

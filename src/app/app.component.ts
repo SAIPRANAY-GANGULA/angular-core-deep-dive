@@ -9,4 +9,8 @@ import { COURSES } from '../constants';
 export class AppComponent {
   title = 'core-deep-dive';
   courses = COURSES;
+
+  onClickEventBubbled(): void {
+    console.log('AppComponent - click event bubbled up');
+  }
 }
