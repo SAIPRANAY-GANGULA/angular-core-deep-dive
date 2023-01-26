@@ -1,0 +1,53 @@
+<div class="flex flex-col justify-center items-center h-screen my-auto">
+  <table
+    class="border-separate border-collapse border border-slate-50 w-96 h-40 self-center"
+  >
+    <thead>
+      <th class="border border-slate-600">First Name</th>
+      <th class="border border-slate-600">Last Name</th>
+      <th class="border border-slate-600">Age</th>
+      <th class="border border-slate-600">Index</th>
+      <th class="border border-slate-600">isFirst</th>
+      <th class="border border-slate-600">isLast</th>
+      <th class="border border-slate-600">isEven</th>
+      <th class="border border-slate-600">isOdd</th>
+      <th class="border border-slate-600">count</th>
+    </thead>
+    <tbody>
+      <tr
+        app-table-row
+        [row]="row"
+        *ngFor="
+          let row of data;
+          trackBy: trackById;
+          index as i;
+          first as isFirst;
+          last as isLast;
+          even as isEven;
+          odd as isOdd;
+          count as count
+        "
+      >
+        <td class="border border-slate-600">{{ i }}</td>
+        <td class="border border-slate-600">{{ isFirst }}</td>
+        <td class="border border-slate-600">{{ isLast }}</td>
+        <td class="border border-slate-600">{{ isEven }}</td>
+        <td class="border border-slate-600">{{ isOdd }}</td>
+        <td class="border border-slate-600">{{ count }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="my-5">
+    <button
+      class="mx-2"
+      mat-stroked-button
+      color="primary"
+      (click)="shuffleData()"
+    >
+      Shuffle Data
+    </button>
+    <button mat-stroked-button color="primary" (click)="addData()">
+      Add Data
+    </button>
+  </div>
+</div>
