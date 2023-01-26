@@ -1,0 +1,21 @@
+<mat-card class="example-card | m-10">
+  <mat-card-header class="flex items-center justify-center">
+    <div mat-card-avatar class="example-header-image | m-0"></div>
+    <mat-card-title>{{ course?.description }}</mat-card-title>
+  </mat-card-header>
+  <img
+    class="my-5"
+    mat-card-image
+    [src]="course?.iconUrl"
+    alt="Photo of Course"
+  />
+  <mat-card-content>
+    <p>
+      {{ course?.longDescription }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="flex justify-center">
+    <button mat-button>{{ course?.category }}</button>
+    <button mat-button>{{ course?.lessonsCount }}</button>
+  </mat-card-actions>
+</mat-card>
