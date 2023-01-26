@@ -20,12 +20,12 @@ ngFor API Ref: https://angular.io/api/common/NgFor
 
 ![image_info](./images/img_2.png)
 
-### `nfIf` Directive
+### `ngIf` Directive
 ngIf API Ref: https://angular.io/api/common/NgIf
 
 ![image_info](./images/img_3.png)
 
-### `nfClass` Directive
+### `ngClass` Directive
 ngClass API Ref: https://angular.io/api/common/NgClass
 
 ![image_info](./images/img_4.png)
@@ -41,3 +41,8 @@ ngClass API Ref: https://angular.io/api/common/NgClass
 
 <some-element [ngClass]="{'class1 class2 class3' : true}">...</some-element>
 ```
+
+### `ngStyle` Directive
+ngStyle API Ref: https://angular.io/api/common/NgStyle
+
+![image_info](./images/img_4.png)
