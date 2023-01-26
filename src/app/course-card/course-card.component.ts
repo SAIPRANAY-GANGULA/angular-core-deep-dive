@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../../constants';
 
 @Component({
@@ -8,8 +8,10 @@ import { Course } from '../../constants';
 })
 export class CourseCardComponent {
   @Input() course: Course | undefined; //property-binding
+  @Output() courseView = new EventEmitter<Course>(); //event-binding
 
   onCourseView(): void {
     console.log('CourseCardComponent - onCourseView clicked');
+    this.courseView.emit(this.course);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COURSES } from '../constants';
+import { Course, COURSES } from '../constants';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,9 @@ export class AppComponent {
 
   onClickEventBubbled(): void {
     console.log('AppComponent - click event bubbled up');
+  }
+
+  onCourseView(course: Course): void {
+    console.log(course);
   }
 }

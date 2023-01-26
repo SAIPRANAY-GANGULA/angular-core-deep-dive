@@ -1,6 +1,7 @@
 <div class="flex items-center justify-center flex-wrap">
   <app-course-card
     (click)="onClickEventBubbled()"
+    (courseView)="onCourseView($event)"
     [course]="courses[0]"
   ></app-course-card>
   <app-course-card [course]="courses[1]"></app-course-card>
