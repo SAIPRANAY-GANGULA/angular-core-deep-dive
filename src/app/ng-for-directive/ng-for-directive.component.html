@@ -35,6 +35,36 @@
         <td class="border border-slate-600">{{ isOdd }}</td>
         <td class="border border-slate-600">{{ count }}</td>
       </tr>
+
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+
+      <!-- Expanded way of writing `ngFor` Directive. Angular under the hood converts *ngFor directive into this  -->
+      <!-- Ref: https://angular.io/api/common/NgFor -->
+      <ng-template
+        ngFor
+        let-row
+        [ngForOf]="data"
+        let-i="index"
+        let-isLast="last"
+        let-isFirst="first"
+        let-isEven="even"
+        [ngForTrackBy]="trackByIndex"
+      >
+        <tr app-table-row [row]="row">
+          <td class="border border-slate-600">{{ i }}</td>
+          <td class="border border-slate-600">{{ isFirst }}</td>
+          <td class="border border-slate-600">{{ isLast }}</td>
+          <td class="border border-slate-600">{{ isEven }}</td>
+        </tr>
+      </ng-template>
     </tbody>
   </table>
   <div class="my-5">
