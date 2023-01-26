@@ -17,10 +17,24 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="flex justify-center">
-    <!--    <span class="span">{{ course?.category }}</span>-->
-    <!--    <span class="span">{{ course?.lessonsCount }}</span>-->
-    <button mat-raised-button color="primary" (click)="onCourseView()">
-      View Course
-    </button>
+    <span class="span">{{ course?.category }}</span>
+    <!--    <span class="span" *ngIf="course?.lessonsCount; else elseBlock">{{-->
+    <!--      course?.lessonsCount-->
+    <!--    }}</span>-->
+
+    <!--    Expanded way of writing *ngIf Directive-->
+    <ng-template
+      [ngIf]="course?.lessonsCount"
+      [ngIfThen]="thenBlock"
+      [ngIfElse]="elseBlock"
+    ></ng-template>
+    <ng-template #thenBlock
+      ><span class="span">{{ course?.lessonsCount }}</span>
+    </ng-template>
+    <ng-template #elseBlock><span class="span">N/A</span></ng-template>
+
+    <!--    <button mat-raised-button color="primary" (click)="onCourseView()">-->
+    <!--      View Course-->
+    <!--    </button>-->
   </mat-card-actions>
 </mat-card>

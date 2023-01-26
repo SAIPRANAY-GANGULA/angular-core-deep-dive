@@ -15,7 +15,12 @@ Custom event listeners will not bubble-up unlike native browser events.<br>
 Ref to see which events bubble-up: https://en.wikipedia.org/wiki/DOM_events#Events
 
 ### `ngFor` Directive
-Ref: https://youtu.be/F3nv4Lclv4Q <br>
+Importance of **trackBy** function: https://youtu.be/F3nv4Lclv4Q <br>
 ngFor API Ref: https://angular.io/api/common/NgFor
 
 ![image_info](./images/img_2.png)
+
+### `nfIf` Directive
+ngIf API Ref: https://angular.io/api/common/NgIf
+
+![image_info](./images/img_3.png)
