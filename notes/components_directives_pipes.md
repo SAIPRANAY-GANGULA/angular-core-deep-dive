@@ -46,3 +46,11 @@ ngClass API Ref: https://angular.io/api/common/NgClass
 ngStyle API Ref: https://angular.io/api/common/NgStyle
 
 ![image_info](./images/img_4.png)
+
+### `ngSwitch` Directive
+ngSwitch API Ref: https://angular.io/api/common/NgSwitch
+
+### `ng-content` vs `ng-container` vs `ng-template`
+`ng-content` is used to **display children** in a template, <br>
+`ng-container` is used as a **non-rendered container** to avoid having to add a span or a div, and <br>
+`ng-template` allows you to **group some content** that is not rendered directly but can be used in other places of your template, or you code.

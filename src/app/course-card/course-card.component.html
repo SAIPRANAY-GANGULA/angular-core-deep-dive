@@ -17,7 +17,13 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="flex justify-center">
-    <span class="span">{{ course?.category }}</span>
+    <ng-container [ngSwitch]="course?.category">
+      <span class="span" *ngSwitchCase="'BEGINNER'">Beginner</span>
+      <span class="span" *ngSwitchCase="'INTERMEDIATE'">Intermediate</span>
+      <span class="span" *ngSwitchCase="'ADVANCED'">Advanced</span>
+      <span class="span" *ngSwitchDefault>All Levels</span>
+    </ng-container>
+
     <!--    <span class="span" *ngIf="course?.lessonsCount; else elseBlock">{{-->
     <!--      course?.lessonsCount-->
     <!--    }}</span>-->
