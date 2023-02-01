@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  angular:
+    image: angular/core-deep-dive:1.0.0
+    build: ../core-deep-dive
+    ports:
+      - 4700:80
