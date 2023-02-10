@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Optional } from '@angular/core';
 import { Course } from '../constants';
 import { CoursesService } from './services/courses.service';
 
@@ -8,14 +8,14 @@ import { CoursesService } from './services/courses.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private readonly coursesService = inject(CoursesService);
+  private readonly coursesService = inject(CoursesService, {
+    optional: true, // doesn't throw error even if it is not provided.
+  });
 
   title = 'core-deep-dive';
-  courses$ = this.coursesService.getCourses();
+  courses$ = this.coursesService?.getCourses();
 
-  // constructor(
-  //   @Inject(COURSES_TOKEN) private readonly coursesService: CoursesService
-  // ) {}
+  constructor(@Optional() private readonly courses: CoursesService) {}
 
   onClickEventBubbled(): void {
     console.log('AppComponent - click event bubbled up');

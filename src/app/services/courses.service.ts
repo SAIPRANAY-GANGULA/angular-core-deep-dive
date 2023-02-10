@@ -11,10 +11,7 @@ let counter = 1;
 
 export const coursesProvider = (http: HttpService) => new CoursesService(http);
 
-@Injectable({
-  providedIn: 'any', // Tree Shakable & 'n' instances are created,
-  // where 'n' is no of lazy loaded modules in which service is used
-})
+@Injectable()
 export class CoursesService {
   constructor(private http: HttpService) {
     console.log('createCourseService', counter++);
