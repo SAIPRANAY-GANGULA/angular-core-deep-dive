@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Course } from '../../constants';
 import { HttpService } from './http.service';
 
-export const COURSES_SERVICE = new InjectionToken<CoursesService>(
+export const COURSES_TOKEN = new InjectionToken<CoursesService>(
   'COURSES_SERVICE'
 );
 

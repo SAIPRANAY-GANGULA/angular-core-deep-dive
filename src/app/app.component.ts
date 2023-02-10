@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { Course } from '../constants';
 import {
-  COURSES_SERVICE,
+  COURSES_TOKEN,
   coursesProvider,
   CoursesService,
 } from './services/courses.service';
@@ -13,19 +13,21 @@ import { HttpService } from './services/http.service';
   styleUrls: ['./app.component.scss'],
   providers: [
     {
-      provide: COURSES_SERVICE,
+      provide: COURSES_TOKEN,
       useFactory: coursesProvider,
       deps: [HttpService],
     },
   ],
 })
 export class AppComponent {
+  private readonly coursesService = inject(COURSES_TOKEN);
+
   title = 'core-deep-dive';
   courses$ = this.coursesService.getCourses();
 
-  constructor(
-    @Inject(COURSES_SERVICE) private readonly coursesService: CoursesService
-  ) {}
+  // constructor(
+  //   @Inject(COURSES_TOKEN) private readonly coursesService: CoursesService
+  // ) {}
 
   onClickEventBubbled(): void {
     console.log('AppComponent - click event bubbled up');
