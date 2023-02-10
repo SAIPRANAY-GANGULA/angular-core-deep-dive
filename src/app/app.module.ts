@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { NgForDirectiveComponent } from './ng-for-directive/ng-for-directive.component';
 import { TableRowComponent } from './ng-for-directive/table-row/table-row.component';
+import { CoursesService } from './services/courses.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,11 @@ import { TableRowComponent } from './ng-for-directive/table-row/table-row.compon
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [], // not TreeShakable, we can still see CoursesService included in the bundle
+  providers: [CoursesService], // not TreeShakable, we can still see CoursesService included in the bundle
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  private readonly coursesService = inject(CoursesService, {
+    self: true, // creates one more instance of service here
+  });
+}
