@@ -6,7 +6,6 @@ import { CoursesService } from '../services/courses.service';
   selector: 'app-course-card',
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.scss'],
-  providers: [CoursesService],
 })
 export class CourseCardComponent {
   @Input('courseAlias') course: Course | undefined; //property-binding
