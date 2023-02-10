@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Course } from '../constants';
-import { COURSES_TOKEN, CoursesService } from './services/courses.service';
+import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,13 @@ import { COURSES_TOKEN, CoursesService } from './services/courses.service';
   styleUrls: ['./app.component.scss'],
   providers: [
     {
-      provide: COURSES_TOKEN,
+      provide: CoursesService,
       useClass: CoursesService,
     },
   ],
 })
 export class AppComponent {
-  private readonly coursesService = inject(COURSES_TOKEN);
+  private readonly coursesService = inject(CoursesService);
 
   title = 'core-deep-dive';
   courses$ = this.coursesService.getCourses();
