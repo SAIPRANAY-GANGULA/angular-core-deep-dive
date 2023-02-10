@@ -13,11 +13,15 @@ export const coursesProvider = (http: HttpService) => new CoursesService(http);
 
 @Injectable()
 export class CoursesService {
-  constructor(private http: HttpService) {
-    console.log('createCourseService', counter++);
-  }
+  prefix = 'root';
+
+  constructor(private http: HttpService) {}
 
   getCourses(): Observable<Course[]> {
     return this.http.get();
+  }
+
+  log(): void {
+    console.log('createCourseService', counter++, this.prefix);
   }
 }

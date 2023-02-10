@@ -1,4 +1,4 @@
-import { Component, inject, Self } from '@angular/core';
+import { Component, inject, Self, SkipSelf } from '@angular/core';
 import { Course } from '../constants';
 import { CoursesService } from './services/courses.service';
 
@@ -9,16 +9,28 @@ import { CoursesService } from './services/courses.service';
   providers: [CoursesService],
 })
 export class AppComponent {
-  private readonly coursesService = inject(CoursesService, {
-    // optional: true, // doesn't throw error even if it is not provided.
-    self: true, // doesn't follow dependency hierarchy checking,
-    // only checks in its own Dependency providers array
-  });
+  // private readonly coursesService = inject(CoursesService, {
+  //   // optional: true, // doesn't throw error even if it is not provided.
+  //   // self: true, // doesn't follow dependency hierarchy checking,only checks in its own Dependency providers array
+  //   skipSelf: true,
+  // });
 
   title = 'core-deep-dive';
-  courses$ = this.coursesService?.getCourses();
+  courses$ = this.courses?.getCourses();
 
-  constructor(@Self() private readonly courses: CoursesService) {}
+  constructor(
+    @Self() private readonly courses: CoursesService,
+    @SkipSelf() private readonly parentCourses: CoursesService // follow dependency hierarchy checking, skips own providers & checks in the hierarchical providers
+  ) {
+    if (courses) {
+      this.courses.prefix = 'App Component';
+      this.courses.log();
+    }
+
+    if (parentCourses) {
+      this.parentCourses.log();
+    }
+  }
 
   onClickEventBubbled(): void {
     console.log('AppComponent - click event bubbled up');
