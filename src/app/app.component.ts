@@ -1,11 +1,6 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Course } from '../constants';
-import {
-  COURSES_TOKEN,
-  coursesProvider,
-  CoursesService,
-} from './services/courses.service';
-import { HttpService } from './services/http.service';
+import { COURSES_TOKEN, CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +9,7 @@ import { HttpService } from './services/http.service';
   providers: [
     {
       provide: COURSES_TOKEN,
-      useFactory: coursesProvider,
-      deps: [HttpService],
+      useClass: CoursesService,
     },
   ],
 })
