@@ -7,14 +7,7 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from '../config';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [
-    CoursesService,
-    {
-      provide: CONFIG_TOKEN,
-      // useFactory: () => APP_CONFIG,
-      useValue: APP_CONFIG,
-    }, // not tree shakeable
-  ],
+  providers: [CoursesService],
 })
 export class AppComponent {
   // private readonly coursesService = inject(CoursesService, {
