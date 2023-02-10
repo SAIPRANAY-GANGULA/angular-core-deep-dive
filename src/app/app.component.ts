@@ -6,12 +6,7 @@ import { CoursesService } from './services/courses.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [
-    {
-      provide: CoursesService,
-      useClass: CoursesService,
-    },
-  ],
+  providers: [CoursesService],
 })
 export class AppComponent {
   private readonly coursesService = inject(CoursesService);
