@@ -11,7 +11,9 @@ let counter = 1;
 
 export const coursesProvider = (http: HttpService) => new CoursesService(http);
 
-@Injectable()
+@Injectable({
+  providedIn: 'root', // Tree Shakable, if not injected anywhere it will not be included in the bundle
+})
 export class CoursesService {
   constructor(private http: HttpService) {
     console.log('createCourseService', counter++);
