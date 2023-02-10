@@ -7,13 +7,11 @@ export const COURSES_TOKEN = new InjectionToken<CoursesService>(
   'COURSES_SERVICE'
 );
 
-let counter = 0;
+let counter = 1;
 
 export const coursesProvider = (http: HttpService) => new CoursesService(http);
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class CoursesService {
   constructor(private http: HttpService) {
     console.log('createCourseService', counter++);
