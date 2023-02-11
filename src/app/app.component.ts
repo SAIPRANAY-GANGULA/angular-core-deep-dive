@@ -1,4 +1,11 @@
-import { Component, Inject, inject, Self, SkipSelf } from '@angular/core';
+import {
+  Component,
+  Inject,
+  inject,
+  Self,
+  SimpleChanges,
+  SkipSelf,
+} from '@angular/core';
 import { Course } from '../constants';
 import { CoursesService } from './services/courses.service';
 import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from '../config';
@@ -45,5 +52,9 @@ export class AppComponent {
 
   onCourseView(course: Course): void {
     console.log(course);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('sss');
   }
 }
