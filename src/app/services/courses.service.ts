@@ -15,13 +15,15 @@ export const coursesProvider = (http: HttpService) => new CoursesService(http);
 export class CoursesService {
   prefix = 'root';
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService) {
+    console.log('createCourseService', counter++, this.prefix);
+  }
 
   getCourses(): Observable<Course[]> {
     return this.http.get();
   }
 
   log(): void {
-    console.log('createCourseService', counter++, this.prefix);
+    // console.log('createCourseService', counter++, this.prefix);
   }
 }

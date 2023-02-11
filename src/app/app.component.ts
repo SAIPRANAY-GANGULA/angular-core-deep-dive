@@ -2,6 +2,7 @@ import { Component, Inject, inject, Self, SkipSelf } from '@angular/core';
 import { Course } from '../constants';
 import { CoursesService } from './services/courses.service';
 import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from '../config';
+import { LazyService } from './lazy/lazy.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
   constructor(
     @Self() private readonly courses: CoursesService,
     @SkipSelf() private readonly parentCourses: CoursesService, // follow dependency hierarchy checking, skips own providers & checks in the hierarchical providers
-    @Inject(CONFIG_TOKEN) private readonly config: AppConfig
+    @Inject(CONFIG_TOKEN) private readonly config: AppConfig,
+    private lazy: LazyService
   ) {
     if (courses) {
       this.courses.prefix = 'App Component';
@@ -32,6 +34,7 @@ export class AppComponent {
     if (parentCourses) {
       this.parentCourses.log();
     }
+    this.lazy.prefix = 'app component';
 
     console.log('appConfig', this.config);
   }

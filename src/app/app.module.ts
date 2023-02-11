@@ -10,6 +10,7 @@ import { CourseCardComponent } from './course-card/course-card.component';
 import { NgForDirectiveComponent } from './ng-for-directive/ng-for-directive.component';
 import { TableRowComponent } from './ng-for-directive/table-row/table-row.component';
 import { CoursesService } from './services/courses.service';
+import { LazyService } from './lazy/lazy.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CoursesService } from './services/courses.service';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [CoursesService], // not TreeShakable, we can still see CoursesService included in the bundle
+  providers: [CoursesService, LazyService], // not TreeShakable, we can still see CoursesService included in the bundle
   bootstrap: [AppComponent],
 })
 export class AppModule {
